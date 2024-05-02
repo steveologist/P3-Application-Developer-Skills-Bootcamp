@@ -1,5 +1,4 @@
 from commands import ExitCmd, NoopCmd
-
 from .base_screen import BaseScreen
 
 

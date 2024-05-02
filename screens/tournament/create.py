@@ -1,7 +1,5 @@
 from commands import TournamentCreateCmd
-
 from ..base_screen import BaseScreen
-
 from datetime import datetime
 
 
