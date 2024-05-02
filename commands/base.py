@@ -1,5 +1,4 @@
 from abc import ABCMeta, abstractmethod
-
 from commands.context import Context
 
 
