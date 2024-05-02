@@ -3,7 +3,7 @@ from .context import Context
 
 
 class NoopCmd(BaseCommand):
-    """Special command: does not do anything, just forwards the data to the screen specified"""
+    """Special command: does not do anything, just forwards the data to the screen specified""" # noqa
 
     def __init__(self, screen, **kwargs):
         """Constructor takes the screen name and its arguments"""

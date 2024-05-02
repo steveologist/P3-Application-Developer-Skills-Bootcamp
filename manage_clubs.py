@@ -1,4 +1,5 @@
 from commands import ClubListCmd
+from models.tournament import Tournament
 from screens import ClubCreate, ClubView, MainMenu, PlayerEdit, PlayerView
 
 
@@ -12,6 +13,7 @@ class App:
         "player-view": PlayerView,
         "player-edit": PlayerEdit,
         "player-create": PlayerEdit,
+        "tournament": Tournament,
         "exit": False,
     }
 

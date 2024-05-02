@@ -10,7 +10,7 @@ class ClubView(BaseScreen):
         self.club = club
 
     def display(self):
-        """Displays the club name and a list of players in the club (with numbers)"""
+        """Displays the club name and a list of players in the club (with numbers)""" # noqa
         print("##", self.club.name)
         for idx, p in enumerate(self.club.players, 1):
             print(idx, p.name, p.email)
@@ -18,7 +18,7 @@ class ClubView(BaseScreen):
     def get_command(self):
         """Gets the command for this screen"""
         while True:
-            print("Select a player to view/edit it, or 'C' to create a new player.")
+            print("Select a player to view/edit it, or 'C' to create a new player.") # noqa
             print("Type 'B' to go back to main menu.")
             value = self.input_string()
             if value.upper() == "B":
@@ -28,5 +28,5 @@ class ClubView(BaseScreen):
             elif value.isdigit():
                 value = int(value)
                 return NoopCmd(
-                    "player-view", club=self.club, player=self.club.players[value - 1]
+                    "player-view", club=self.club, player=self.club.players[value - 1] # noqa
                 )

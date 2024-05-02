@@ -14,7 +14,7 @@ class Context:
         self.kwargs = kwargs
 
     def set_args(self, **kwargs):
-        """Syntactic sugar to set the kwargs attribute using dictionary unpacking"""
+        """Syntactic sugar to set the kwargs attribute using dictionary unpacking""" # noqa
         self.kwargs = kwargs
 
     def __str__(self):
