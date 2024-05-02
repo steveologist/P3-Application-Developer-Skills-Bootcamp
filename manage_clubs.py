@@ -1,11 +1,5 @@
-
 from commands import ClubListCmd
-from screens import ClubCreate, ClubView, MainMenu, PlayerEdit, PlayerView
-
-# Inside manage_clubs.py
-from tournamentcommands.tournament_list_cmd import TournamentListCmd
-from tournamentcommands.tournament_create_cmd import TournamentCreateCmd
-from screens.tournamentscreens import TournamentView, TournamentMenu
+from screens import ClubCreate, ClubView, MainMenu, PlayerEdit, PlayerView, TournamentView, TournamentMenu
 
 
 class App:
@@ -15,40 +9,32 @@ class App:
         "main-menu": MainMenu,
         "club-create": ClubCreate,
         "club-view": ClubView,
+        "tournament-view": TournamentView,
+        "tournament-menu": TournamentMenu,
         "player-view": PlayerView,
         "player-edit": PlayerEdit,
         "player-create": PlayerEdit,
-        "tournament-menu": TournamentMenu,  # Adjust screen mapping for tournament menu
-        "tournament-create": TournamentCreateCmd,
-        "tournament-view": TournamentView,
         "exit": False,
     }
 
     def __init__(self):
-        # Start with the main menu
-        self.context = {"screen": "main-menu", "run": True}
+        # We start with the list of clubs (= main menu)
+        command = ClubListCmd()
+        self.context = command()
 
     def run(self):
-        while self.context["run"]:
-            screen_name = self.context["screen"]
-            if screen_name == "main-menu":
-                command = ClubListCmd()
-                self.context = command()
-            elif screen_name == "tournament-menu":
-                command = TournamentListCmd()
-                self.context = command()
-
+        while self.context.run:
             # Get the screen class from the mapping
-            screen_class = self.SCREENS[screen_name]
+            screen = self.SCREENS[self.context.screen]
             try:
                 # Run the screen and get the command
-                command = screen_class(**self.context).run()
+                command = screen(**self.context.kwargs).run()
                 # Run the command and get a context back
                 self.context = command()
             except KeyboardInterrupt:
                 # Ctrl-C
                 print("Bye!")
-                self.context["run"] = False
+                self.context.run = False
 
 
 if __name__ == "__main__":

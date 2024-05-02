@@ -16,3 +16,4 @@ tinydb==4.6.1
 tomli==2.0.1
 typing_extensions==4.1.1
 zipp==3.7.0
+Faker==25.0.1
