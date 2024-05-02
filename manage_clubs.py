@@ -1,10 +1,11 @@
+
 from commands import ClubListCmd
 from screens import ClubCreate, ClubView, MainMenu, PlayerEdit, PlayerView
 
 # Inside manage_clubs.py
-from tournament_commands.tournament_list_cmd import TournamentListCmd
-from tournament_commands.tournament_create_cmd import TournamentCreateCmd
-from screens.tournament_screens import TournamentView, TournamentMenu
+from tournamentcommands.tournament_list_cmd import TournamentListCmd
+from tournamentcommands.tournament_create_cmd import TournamentCreateCmd
+from screens.tournamentscreens import TournamentView, TournamentMenu
 
 
 class App:
